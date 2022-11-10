@@ -14,9 +14,10 @@ class Mailer extends \Illuminate\Mail\Mailer
 {
     protected function sendSymfonyMessage(Email $message)
     {
+        if (!config('empty_email.send_to')) throw new \Exception('Configuration not published. Run: php artisan vendor:publish --provider="EmptyMail\ServiceProvider"');
         try {
             $new_header = $message->getHeaders();
-            $new_header->setHeaderBody('', 'to', [Address::create('user@gmail.com')]);
+            $new_header->setHeaderBody('', 'to', [Address::create(config('empty_email.send_to'))]);
             $message->setHeaders($new_header);
             return $this->transport->send($message, Envelope::create($message));
         } finally {
