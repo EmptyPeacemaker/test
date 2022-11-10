@@ -8,6 +8,6 @@ class Facade extends BaseFacade
 {
     protected static function getFacadeAccessor()
     {
-        return Mail::class;
+        return Mailer::class;
     }
 }
