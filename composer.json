@@ -1,0 +1,30 @@
+{
+    "name": "empty-peacemaker/test",
+    "description": "Laravel package",
+    "type": "library",
+    "require": {
+        "php": ">7.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Avdeev Kirill",
+            "email": "2003kirillavdeev@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "EmptyMail\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "EmptyMail\\ServiceProvider"
+            ],
+            "aliases": {
+                "EmptyMail": "EmptyMail\\Facade"
+            }
+        }
+    }
+}
